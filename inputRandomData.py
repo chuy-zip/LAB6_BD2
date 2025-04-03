@@ -46,7 +46,7 @@ def generate_random_users(num_users=100000):
         historial_compras = []
         for _ in range(num_compras):
             producto = random.choice(productos)
-            fecha_compra = fake.date_time_between(start_date="-2y", end_date="now").timestamp()
+            fecha_compra = fake.date_time_between(start_date="-2y", end_date="now")
             historial_compras.append({
                 "producto": producto,
                 "fecha": fecha_compra
@@ -124,7 +124,7 @@ db = connect_to_mongodb()
 
 if db != None:
     # Generar 100,000 usuarios iniciales
-    users = generate_random_users(20)
+    users = generate_random_users(100000)
     insert_users(db, users)
     
     # pra quien haga el 1.6, aqui esta la funcion para agregar otros 50,000 usuarios adicionales 
